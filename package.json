@@ -5,7 +5,8 @@
   "main": "./dist/index.js",
   "scripts": {
     "start": "npx ts-node-dev -r tsconfig-paths/register src/index.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "deploy": "tsc && gcloud functions deploy math-function --entry-point=api --runtime=nodejs16 --trigger-http"
   },
   "keywords": [],
   "author": "",

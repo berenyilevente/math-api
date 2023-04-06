@@ -22,4 +22,4 @@ app.use('/', mathRouter);
 
 app.listen(PORT, () => console.log(`server running: ${PORT}`));
 
-export const api = app;
+export const api: Express = app;

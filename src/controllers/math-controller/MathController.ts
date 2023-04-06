@@ -1,4 +1,4 @@
-import { MathInput, MathResult, MultipleNumbers } from '@/utils';
+import { MathInput, MathResult, MultipleNumbers } from '../..//utils';
 import { Request, Response } from 'express';
 
 export const additionController = async (

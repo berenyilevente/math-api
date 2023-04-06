@@ -4,7 +4,7 @@ import {
   divisionController,
   multiplicationController,
   subtractionController,
-} from '@/controllers';
+} from '../../controllers';
 import express, { Router } from 'express';
 
 export const mathRouter: Router = express.Router();

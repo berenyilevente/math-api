@@ -8,7 +8,7 @@ import { mathRouter } from './routes';
 dotenv.config();
 
 const app: Express = express();
-const PORT: string | number = process.env.APP_PORT || 8000;
+const PORT: string | number = process.env.APP_PORT || 5000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -21,3 +21,5 @@ app.get('/', (req: Request, res: Response) => {
 app.use('/', mathRouter);
 
 app.listen(PORT, () => console.log(`server running: ${PORT}`));
+
+export const api = app;

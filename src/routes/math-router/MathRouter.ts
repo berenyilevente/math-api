@@ -1,4 +1,5 @@
 import {
+  addMultipleNumbers,
   additionController,
   divisionController,
   multiplicationController,
@@ -12,3 +13,4 @@ mathRouter.post('/addition', additionController);
 mathRouter.post('/subtraction', subtractionController);
 mathRouter.post('/multiplication', multiplicationController);
 mathRouter.post('/division', divisionController);
+mathRouter.post('/addMultipleNumbers', addMultipleNumbers);

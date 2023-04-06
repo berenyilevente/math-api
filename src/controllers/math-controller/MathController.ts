@@ -1,4 +1,4 @@
-import { MathInput, MathResult } from '@/utils';
+import { MathInput, MathResult, MultipleNumbers } from '@/utils';
 import { Request, Response } from 'express';
 
 export const additionController = async (
@@ -97,6 +97,43 @@ export const divisionController = async (
 
     if (Number.isInteger(result) === false) {
       return res.json({ result: result.toFixed(2), errorMessage: null });
+    }
+
+    return res.json({ result, errorMessage: null });
+  } catch (error) {
+    return res.status(500).json({
+      result: null,
+      errorMessage: 'Something went wrong',
+    });
+  }
+};
+
+export const addMultipleNumbers = async (
+  req: Request,
+  res: Response<MathResult>
+) => {
+  try {
+    const { numbers }: MultipleNumbers = req.body;
+
+    if (
+      Array.isArray(numbers) &&
+      numbers.filter((number) => typeof number === 'number')
+    ) {
+      return res.status(422).json({
+        result: null,
+        errorMessage: 'Invalid input, expected numbers only',
+      });
+    }
+
+    let result: number | null = null;
+    for (let i = 0; i < numbers.length; i++) {
+      if (i === 0) {
+        result = numbers[i];
+      }
+
+      if (i !== 0) {
+        result = result !== null ? result + numbers[i] : null;
+      }
     }
 
     return res.json({ result, errorMessage: null });
